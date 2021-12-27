@@ -4,8 +4,11 @@ import styles from '../styles/Home.module.css';
 import Card from '../components/Card';
 import DeckMenu from '../components/DeckMenu';
 import Heading from '../components/Heading';
+import { decks } from '../fixtures/decks';
 
 export default function Home() {
+  console.log('hello world')
+  console.log(decks);
   return (
     <div className={styles.container}>
       <Head>
