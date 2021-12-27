@@ -6,12 +6,14 @@ import {
   lowerCaseLettersToFocus,
   upperAndLowerCaseLettersToFocus
 } from "./letters";
+import { unCamelCase } from "../helpers/helpers";
 
 export const decks = {
-  upperCaseLetters,
-  lowerCaseLetters,
-  upperAndLowerCaseLetters,
-  lowerCaseLettersToFocus,
-  upperCaseLettersToFocus,
-  upperAndLowerCaseLettersToFocus,
+  [unCamelCase('upperCaseLetters')]: upperCaseLetters,
+  [unCamelCase('lowerCaseLetters')]: lowerCaseLetters,
+  [unCamelCase('upperAndLowerCaseLetters')]: upperAndLowerCaseLetters,
+  [unCamelCase('lowerCaseLettersToFocus')]: lowerCaseLettersToFocus,
+  [unCamelCase('upperCaseLettersToFocus')]: upperCaseLettersToFocus,
+  [unCamelCase('upperAndLowerCaseLettersToFocus')]: upperAndLowerCaseLettersToFocus,
 };
+

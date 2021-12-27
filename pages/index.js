@@ -4,11 +4,14 @@ import styles from '../styles/Home.module.css';
 import Card from '../components/Card';
 import DeckMenu from '../components/DeckMenu';
 import Heading from '../components/Heading';
+import { useState } from 'react';
 import { decks } from '../fixtures/decks';
 
 export default function Home() {
-  console.log('hello world')
   console.log(decks);
+  const firstDeck = Object.keys(decks)[0];
+  const [currentDeck, setCurrentDeck] = useState(decks[firstDeck]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +22,7 @@ export default function Home() {
       <main>
         <Heading level="h1" title="Welcome to Reading Flashcards THing" />
         <Heading level="h2" title="My Decks" />
-        <DeckMenu />
+        <DeckMenu decks={decks} activeDeck={currentDeck} setDeck={setCurrentDeck} />
         <Heading level="h3" title="Current Deck Title" />
         <Card />
       </main>
