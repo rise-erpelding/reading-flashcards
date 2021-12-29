@@ -9,13 +9,17 @@ import { decks } from '../fixtures/decks';
 
 export default function Home() {
   const deckNames = Object.keys(decks);
-  console.log(deckNames);
   const firstDeck = deckNames[0];
   const [currentDeck, setCurrentDeck] = useState(firstDeck);
-  console.log(currentDeck);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const updateDeck = (value) => {
     setCurrentDeck(value);
+  }
+
+  const updateIndex = () => {
+    const nextIndex = currentCardIndex + 1;
+    setCurrentCardIndex(nextIndex);
   }
 
   return (
@@ -28,9 +32,9 @@ export default function Home() {
       <main>
         <Heading level="h1" title="Welcome to Reading Flashcards THing" />
         <Heading level="h2" title="My Decks" />
-        <DeckMenu decks={decks} activeDeck={currentDeck} updateDeck={updateDeck} />
+        <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} />
         <Heading level="h3" title={currentDeck} />
-        <Card />
+        <Card activeDeck={decks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} />
       </main>
     </div>
   )
