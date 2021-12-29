@@ -8,9 +8,15 @@ import { useState } from 'react';
 import { decks } from '../fixtures/decks';
 
 export default function Home() {
-  console.log(decks);
-  const firstDeck = Object.keys(decks)[0];
-  const [currentDeck, setCurrentDeck] = useState(decks[firstDeck]);
+  const deckNames = Object.keys(decks);
+  console.log(deckNames);
+  const firstDeck = deckNames[0];
+  const [currentDeck, setCurrentDeck] = useState(firstDeck);
+  console.log(currentDeck);
+
+  const updateDeck = (value) => {
+    setCurrentDeck(value);
+  }
 
   return (
     <div className={styles.container}>
@@ -22,8 +28,8 @@ export default function Home() {
       <main>
         <Heading level="h1" title="Welcome to Reading Flashcards THing" />
         <Heading level="h2" title="My Decks" />
-        <DeckMenu decks={decks} activeDeck={currentDeck} setDeck={setCurrentDeck} />
-        <Heading level="h3" title="Current Deck Title" />
+        <DeckMenu decks={decks} activeDeck={currentDeck} updateDeck={updateDeck} />
+        <Heading level="h3" title={currentDeck} />
         <Card />
       </main>
     </div>
