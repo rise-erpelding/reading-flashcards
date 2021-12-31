@@ -1,8 +1,12 @@
 export default function Card(props) {
-  const { activeDeck, currentIndex, updateIndex } = props;
+  const { activeDeck, currentIndex, updateIndex, reShuffleDecks } = props;
 
   const incrementIndex = () => {
     updateIndex();
+  }
+
+  const shuffleDecks = () => {
+    reShuffleDecks();
   }
 
   if (currentIndex < activeDeck.length) {
@@ -17,7 +21,7 @@ export default function Card(props) {
     return (
       <section>
         <p>All done!</p>
-        <button>Play again</button>
+        <button onClick={shuffleDecks}>Play again</button>
       </section>
     );
   }

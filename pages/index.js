@@ -19,6 +19,11 @@ export default function Home() {
   // https://nextjs.org/docs/messages/react-hydration-error
   useEffect(() => setShuffledDecks(shuffleDecks(decks)), []);
 
+  const reShuffleDecks = () => {
+    setShuffledDecks(shuffleDecks(decks));
+    setCurrentCardIndex(0);
+  }
+
   const updateDeck = (value) => {
     setCurrentDeck(value);
   }
@@ -40,7 +45,7 @@ export default function Home() {
         <Heading level="h2" title="My Decks" />
         <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} />
         <Heading level="h3" title={currentDeck} />
-        <Card activeDeck={shuffledDecks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} />
+        <Card activeDeck={shuffledDecks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} reShuffleDecks={reShuffleDecks} />
       </main>
     </div>
   )
