@@ -4,16 +4,20 @@ import styles from '../styles/Home.module.css';
 import Card from '../components/Card';
 import DeckMenu from '../components/DeckMenu';
 import Heading from '../components/Heading';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { decks } from '../fixtures/decks';
 import { shuffleDecks } from '../helpers/helpers';
 
 export default function Home() {
   const deckNames = Object.keys(decks);
   const firstDeck = deckNames[0];
-  const [shuffledDecks] = useState(shuffleDecks(decks));
+  const [shuffledDecks, setShuffledDecks] = useState(decks);
   const [currentDeck, setCurrentDeck] = useState(firstDeck);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  // allows us to shuffle the decks without a hydration error
+  // https://nextjs.org/docs/messages/react-hydration-error
+  useEffect(() => setShuffledDecks(shuffleDecks(decks)), []);
 
   const updateDeck = (value) => {
     setCurrentDeck(value);
