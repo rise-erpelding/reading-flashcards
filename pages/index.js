@@ -6,10 +6,12 @@ import DeckMenu from '../components/DeckMenu';
 import Heading from '../components/Heading';
 import { useState } from 'react';
 import { decks } from '../fixtures/decks';
+import { shuffleDecks } from '../helpers/helpers';
 
 export default function Home() {
   const deckNames = Object.keys(decks);
   const firstDeck = deckNames[0];
+  const [shuffledDecks] = useState(shuffleDecks(decks));
   const [currentDeck, setCurrentDeck] = useState(firstDeck);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
@@ -34,7 +36,7 @@ export default function Home() {
         <Heading level="h2" title="My Decks" />
         <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} />
         <Heading level="h3" title={currentDeck} />
-        <Card activeDeck={decks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} />
+        <Card activeDeck={shuffledDecks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} />
       </main>
     </div>
   )

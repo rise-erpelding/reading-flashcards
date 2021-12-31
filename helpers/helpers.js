@@ -22,3 +22,23 @@ export const unCamelCase = (str) => {
   });
   return strArr.join('');
 }
+
+// Fisher-Yates shuffle
+const shuffle = (arr) => {
+  for (let i = arr.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
+const deepCopy = (obj) => {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+export const shuffleDecks = (decks) => {
+  const decksCopy = deepCopy(decks);
+  const keys = Object.keys(decksCopy);
+  keys.forEach((deckName) => shuffle(decksCopy[deckName]));
+  return decksCopy;
+};
