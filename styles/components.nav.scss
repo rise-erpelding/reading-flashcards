@@ -1,0 +1,76 @@
+// .navbar__checkbox = .nav__checkbox
+// .navbar__button = .nav__button
+// .navbar__icon = .nav__icon
+
+.nav__checkbox {
+  display: none;
+
+  &:checked + .nav__button .nav__icon::before {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+
+  &:checked + .nav__button .nav__icon::after {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &:checked + .nav__button .nav__icon {
+    background-color: transparent;
+  }
+}
+
+.nav__button {
+  position: fixed;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.nav__icon {
+  position: relative;
+  margin-top: 23px;
+
+  &,
+  &::before,
+  &::after {
+    width: 40px;
+    height: 4px;
+    background-color: black;
+    display: inline-block;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    top: -11px;
+  }
+
+  &::after {
+    top: 11px;
+  }
+}
+
+.nav__menu {
+  position: fixed;
+  top: -200px;
+  opacity: 0;
+  right: 10px;
+  width: 120px;
+  background-color: rgba(white, 0.93);
+  transition: all .3s;
+}
+
+.nav__checkbox:checked ~ .nav__menu {
+  opacity: 100;
+  top: 60px;
+}

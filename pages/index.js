@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head';
 // import Image from 'next/image'
+import Nav from '../components/Nav';
 import Card from '../components/Card';
 import DeckMenu from '../components/DeckMenu';
 import Heading from '../components/Heading';
@@ -14,6 +15,7 @@ export default function Home() {
   const [shuffledDecks, setShuffledDecks] = useState(decks);
   const [currentDeck, setCurrentDeck] = useState(firstDeck);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [showMenu, setShowMenu] = useState(false);
 
   // allows us to shuffle the decks without a hydration error
   // https://nextjs.org/docs/messages/react-hydration-error
@@ -33,6 +35,11 @@ export default function Home() {
     setCurrentCardIndex(nextIndex);
   }
 
+  const toggleDisplayMenu = () => {
+    const currentMenuState = showMenu;
+    setShowMenu(!currentMenuState);
+  }
+
   return (
     <div>
       <Head>
@@ -42,10 +49,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        <Heading level="h1" title="Welcome to Reading Flashcards Thing" />
-        <Heading level="h2" title="My Decks" />
-        <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} />
-        <Heading level="h3" title={currentDeck} />
+        <Nav decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} />
+        {/* <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} /> */}
+        
+        <Heading level="h1" title={currentDeck} />
         <Card activeDeck={shuffledDecks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} reShuffleDecks={reShuffleDecks} />
       </main>
     </div>

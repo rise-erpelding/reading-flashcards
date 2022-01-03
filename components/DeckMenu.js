@@ -10,11 +10,11 @@ export default function DeckMenu(props) {
   }
 
   return (
-    <>
+    <div className="nav__menu">
       <label htmlFor="deck-select">Choose a deck:</label>
       <select defaultValue={activeDeckName} name="decks" id="deck-select" onChange={changeDeck}>
         {listedDecks}
       </select>
-    </>
+    </div>
   )
 }
