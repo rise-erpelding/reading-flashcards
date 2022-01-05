@@ -5,7 +5,7 @@ export default function Nav(props) {
   const { activeDeckName, decks, updateDeck } = props;
   return (
     <nav>
-      <NavIcon />
+      {/* <NavIcon /> */}
       <DeckMenu decks={decks} activeDeckName={activeDeckName} updateDeck={updateDeck} />
     </nav>
   );
