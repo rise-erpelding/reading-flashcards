@@ -13,6 +13,28 @@ $blue-green: #2e9cca;
 $sapphire-blue: #29648a;
 $cultured: #f4f4f6;
 
+$dull-blue: #3f3fb5;
+$dull-blue--medium: #3f3fb5b3;
+$dull-blue--faded: #3f3fb54d; // 30% transparent
+$dull-blue--white: #3f3fb526; // 15% transparent
+$main-color: $dull-blue;
+$main-medium: $dull-blue--medium;
+$faded-main: $dull-blue--faded;
+$background-main: $dull-blue--white;
+
+// giving this color a more positive name that I'll use later I guess
+$ocean-blue: #3F3FB5;
+// dark, almost black
+$oxford-blue: #10102D;
+// mid-dark
+$st-patricks-blue: #2A2A79;
+// mid-light
+$violet-blue-crayola: #8686D5;
+// light
+$lavender-web: #E0E0F5;
+
+$carrot-orange: #EC9A29;
+
 $dark: $space-cadet;
 $medium-dark: $independence;
 $accent: $blue-green;

@@ -8,6 +8,7 @@ import Heading from '../components/Heading';
 import { useState, useEffect } from 'react';
 import { decks } from '../fixtures/decks';
 import { shuffleDecks } from '../helpers/helpers';
+import Header from '../components/Header';
 
 export default function Home() {
   const deckNames = Object.keys(decks);
@@ -48,6 +49,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400&family=Montserrat+Alternates:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header></Header>
       <main className="main">
         <Nav decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} />
         {/* <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} /> */}
