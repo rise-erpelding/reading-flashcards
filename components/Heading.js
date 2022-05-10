@@ -2,7 +2,7 @@ export default function Heading(props) {
   const HeadingLevel = props.level;
   return (
     <>
-      <HeadingLevel>{props.title}</HeadingLevel>
+      <HeadingLevel className="heading">{props.title}</HeadingLevel>
     </>
   )
 }
