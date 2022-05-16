@@ -1,3 +1,7 @@
+$nav-width: 350px;
+$x-right-spacing: 380px;
+$negative-x-right-spacing: -380px;
+
 .nav {
   box-sizing: border-box;
 
@@ -14,17 +18,20 @@
     }
 
     &--x {
-      right: 380px;
+      transition: transform 250ms 250ms;
+      opacity: 0;
+      right: $negative-x-right-spacing;
     }
   }
 
   &__menu {
     background-color: $lavender-web;
-    max-width: 350px;
+    max-width: $nav-width;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
+    right: $negative-x-right-spacing;
+    transition: right 250ms;
     z-index: 100;
     padding: 1rem;
     opacity: 0;
@@ -61,6 +68,13 @@
     display: none;
 
     &:checked ~ .nav__menu {
+      opacity: 100;
+      right: 0;
+    }
+
+    &:checked ~ .nav__menu .nav__icon--x {
+      transform: rotate(360deg);
+      right: $x-right-spacing;
       opacity: 100;
     }
 
