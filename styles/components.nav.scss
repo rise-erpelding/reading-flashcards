@@ -4,6 +4,7 @@ $negative-x-right-spacing: -380px;
 
 .nav {
   box-sizing: border-box;
+  font-family: 'Montserrat Alternates', sans-serif;
 
   &__icon {
     width: 3rem;
@@ -14,12 +15,14 @@ $negative-x-right-spacing: -380px;
     z-index: 200;
 
     &--burger {
+      top: 0.5rem;
       right: 0.5rem;
     }
 
     &--x {
       transition: transform 250ms 250ms;
       opacity: 0;
+      top: 0;
       right: $negative-x-right-spacing;
     }
   }
