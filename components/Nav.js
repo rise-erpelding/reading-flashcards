@@ -7,6 +7,7 @@ export default function Nav(props) {
     <nav className="nav">
       <NavIcon />
       <DeckMenu decks={decks} activeDeckName={activeDeckName} updateDeck={updateDeck} />
+      <div className="nav__isolation-layer"></div>
     </nav>
   );
 }
