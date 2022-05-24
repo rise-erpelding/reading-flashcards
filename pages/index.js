@@ -3,7 +3,6 @@ import Head from 'next/head';
 // import Image from 'next/image'
 import Nav from '../components/Nav';
 import Card from '../components/Card';
-import DeckMenu from '../components/DeckMenu';
 import Heading from '../components/Heading';
 import { useState, useEffect } from 'react';
 import { decks } from '../fixtures/decks';

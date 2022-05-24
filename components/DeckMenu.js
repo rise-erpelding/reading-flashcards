@@ -6,15 +6,18 @@ export default function DeckMenu(props) {
     updateDeck(deck);
   }
 
-  // activeDeckName will be used to make the active deck look different in the menu
+  const deckClassNames = (deckName) => {
+    if (deckName === activeDeckName) return "nav__list-item nav__list-item--active";
+    return "nav__list-item";
+  }
 
   const deckList = deckNames.map((deckName, index) => (
-    <li key={index} onClick={() => changeDeck(deckName)} className="nav__list-item">
+    <li key={index} onClick={() => changeDeck(deckName)} className={deckClassNames(deckName)}>
       <span className="nav__bullet-container">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="17" y="4" width="65" height="92" rx="15" stroke="black" strokeWidth="4" fill="transparent" />
-          <rect x="31" y="4" width="65" height="92" rx="15" stroke="black" strokeWidth="4" fill="transparent" />
-          <rect x="3" y="4" width="65" height="92" rx="15" stroke="black" strokeWidth="4" fill="#E0E0F5" />
+          <rect className="nav__rect-svg nav__rect-svg--bottom" x="17" y="4" width="65" height="92" rx="15" stroke="black" strokeWidth="4" fill="transparent" />
+          <rect className="nav__rect-svg nav__rect-svg--middle" x="31" y="4" width="65" height="92" rx="15" stroke="black" strokeWidth="4" fill="transparent" />
+          <rect className="nav__rect-svg nav__rect-svg--top" x="3" y="4" width="65" height="92" rx="15" stroke="black" strokeWidth="4" fill="#E0E0F5" />
         </svg>
       </span>
       {deckName}

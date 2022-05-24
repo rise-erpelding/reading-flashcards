@@ -2,6 +2,8 @@ $nav-width: 350px;
 $x-right-spacing: 380px;
 $negative-x-right-spacing: -380px;
 
+$active-nav-color: $max-blue-purple;
+
 .nav {
   box-sizing: border-box;
   font-family: 'Montserrat Alternates', sans-serif;
@@ -36,7 +38,7 @@ $negative-x-right-spacing: -380px;
     right: $negative-x-right-spacing;
     transition: right 250ms;
     z-index: 100;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     opacity: 0;
 
   }
@@ -48,12 +50,25 @@ $negative-x-right-spacing: -380px;
   }
 
   &__list-item {
-    padding-bottom: 1.5rem;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
     font-weight: bold;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &--active {
+      background-color: $active-nav-color;
+
+      & .nav__rect-svg {
+        // stroke: yellow; // just to show that you can change the stroke here, doesn't mean you should
+
+        &--top {
+          fill: $active-nav-color;
+        }
+      }
+    }
   }
 
   &__bullet-container {
