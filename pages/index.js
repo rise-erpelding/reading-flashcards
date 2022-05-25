@@ -3,7 +3,6 @@ import Head from 'next/head';
 // import Image from 'next/image'
 import Nav from '../components/Nav';
 import Card from '../components/Card';
-import Heading from '../components/Heading';
 import { useState, useEffect } from 'react';
 import { decks } from '../fixtures/decks';
 import { shuffleDecks } from '../helpers/helpers';
@@ -53,8 +52,7 @@ export default function Home() {
       {/* <DeckMenu decks={decks} activeDeckName={currentDeck} updateDeck={updateDeck} /> */}
 
       <main className="main">
-        <Header></Header>
-        <Heading level="h1" title={currentDeck} />
+        <Header title={currentDeck}></Header>
         <Card activeDeck={shuffledDecks[currentDeck]} currentIndex={currentCardIndex} updateIndex={updateIndex} reShuffleDecks={reShuffleDecks} />
       </main>
     </div>
